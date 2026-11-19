@@ -184,10 +184,16 @@ const BY = Object.fromEntries(M.map(m=>[m.id,m]));
 const STATES = ["no_cursada","cursando","regularizada","promocionada","aprobada"];
 const LABEL = {no_cursada:"No cursada",cursando:"Cursando",regularizada:"Regularizada",promocionada:"Aprobada por promoción",aprobada:"Aprobada por final"};
 
-// Estado inicial (editable)
+// Estado guardado de Jorge (19/11/2026). Es el que se carga en un dispositivo nuevo
+// o al tocar "Reiniciar". Lo que no figura acá queda como "no_cursada".
+const GUARDADO = {
+  PS:"aprobada", AGA:"aprobada", SSRR:"aprobada", Info1:"aprobada", IngSoc:"aprobada",
+  AM1:"regularizada", F1:"regularizada", QG:"regularizada",
+  AM2:"cursando", PyE:"regularizada", Info2:"promocionada",
+  Leg:"regularizada"
+};
 const DEFAULT = {};
-M.forEach(m=>DEFAULT[m.id]= m.lv===1 ? "aprobada" : "no_cursada");
-DEFAULT.PyE="regularizada"; DEFAULT.AM2="cursando"; DEFAULT.Info2="cursando";
+M.forEach(m=>DEFAULT[m.id]= GUARDADO[m.id] || "no_cursada");
 
 const KEY="correlativas-ii-utn-v1";
 let S = {...DEFAULT};
