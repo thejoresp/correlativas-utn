@@ -1,6 +1,6 @@
 // Service worker: cachea la app para que funcione offline.
 // Subí CACHE de versión cada vez que cambies index.html para forzar la actualización.
-const CACHE = "correlativas-v2";
+const CACHE = "correlativas-v3";
 const ASSETS = [
   "./",
   "./index.html",
